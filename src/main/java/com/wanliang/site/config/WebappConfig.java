@@ -21,6 +21,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.wanliang.site.controller.RegistryController;
@@ -37,20 +38,20 @@ public class WebappConfig extends WebMvcConfigurerAdapter {
 		converters.add(new MappingJackson2HttpMessageConverter());
 	}
 
-	/**
-	 * Controller with REST-API for spring-boot applications to register itself.
-	 */
-	@Bean
-	public RegistryController registryController() {
-		return new RegistryController();
-	}
-
-	/**
-	 * Registry for all registered application.
-	 */
-	@Bean
-	public ApplicationService applicationRegistry() {
-		return new ApplicationService();
-	}
+//	/**
+//	 * Controller with REST-API for spring-boot applications to register itself.
+//	 */
+//	@Bean
+//	public RegistryController registryController() {
+//		return new RegistryController();
+//	}
+//
+//	/**
+//	 * Registry for all registered application.
+//	 */
+//	@Bean
+//	public ApplicationService applicationRegistry() {
+//		return new ApplicationService();
+//	}
 
 }

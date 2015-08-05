@@ -18,12 +18,14 @@ package com.wanliang.site;
 import com.wanliang.site.config.DataBaseConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import com.wanliang.site.config.WebappConfig;
 
 @Configuration
+@ComponentScan
 @EnableAutoConfiguration
 @Import({WebappConfig.class,DataBaseConfig.class})
 public class SpringBootAdmin {
