@@ -24,8 +24,6 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.wanliang.site.controller.RegistryController;
-import com.wanliang.site.service.ApplicationService;
 
 @Configuration
 public class WebappConfig extends WebMvcConfigurerAdapter {

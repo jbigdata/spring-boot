@@ -16,7 +16,7 @@ body {
 }
 
 .container-fluid {
-  max-width: 1024px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -54,7 +54,7 @@ body {
   filter: none;
   background-color: #34302d;
   border: none;
-  border-top: 4px solid #6db33f;
+  border-top: 0px solid #6db33f;
   box-shadow: none;
   position: relative;
   border-radius: 0;

@@ -3,7 +3,6 @@ package com.wanliang.site.controller;
 import com.wanliang.site.command.GetUserCommand;
 import com.wanliang.site.domain.User;
 import com.wanliang.site.service.UserService;
-import de.codecentric.boot.admin.model.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
