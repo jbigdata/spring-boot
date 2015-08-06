@@ -16,6 +16,7 @@
 package com.wanliang.site;
 
 import com.wanliang.site.config.DataBaseConfig;
+import com.wanliang.site.config.RedisConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -27,7 +28,7 @@ import com.wanliang.site.config.WebappConfig;
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-@Import({WebappConfig.class,DataBaseConfig.class})
+@Import({WebappConfig.class,DataBaseConfig.class, RedisConfig.class})
 public class SpringBootAdmin {
 
 	/**
