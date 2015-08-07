@@ -25,50 +25,50 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 
-//@Configuration
-//public class WebappConfig extends WebMvcConfigurerAdapter {
-//
-//	/**
-//	 * Add JSON MessageConverter to send JSON objects to web clients.
-//	 */
-//	@Override
-//	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-//		converters.add(new MappingJackson2HttpMessageConverter());
-//	}
-//
-//
-//}
-
-
-
-import com.alibaba.fastjson.serializer.SerializerFeature;
-		import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-		import org.springframework.context.annotation.Bean;
-		import org.springframework.context.annotation.Configuration;
-		import org.springframework.http.converter.HttpMessageConverter;
-		import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-
-		import java.nio.charset.Charset;
-		import java.util.List;
-
-
 @Configuration
-public class WebappConfig extends WebMvcConfigurationSupport {
+public class WebappConfig extends WebMvcConfigurerAdapter {
 
-
-	@Bean
-	public FastJsonHttpMessageConverter customFastJsonHttpMessageConverter() {
-		FastJsonHttpMessageConverter jsonConverter = new FastJsonHttpMessageConverter();
-		jsonConverter.setCharset(Charset.forName("UTF-8"));
-		jsonConverter.setFeatures(SerializerFeature.WriteDateUseDateFormat);
-		return jsonConverter;
-	}
-
+	/**
+	 * Add JSON MessageConverter to send JSON objects to web clients.
+	 */
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-		converters.add(customFastJsonHttpMessageConverter());
-		super.addDefaultHttpMessageConverters(converters);
+		converters.add(new MappingJackson2HttpMessageConverter());
 	}
 
 
 }
+
+
+//
+//import com.alibaba.fastjson.serializer.SerializerFeature;
+//		import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+//		import org.springframework.context.annotation.Bean;
+//		import org.springframework.context.annotation.Configuration;
+//		import org.springframework.http.converter.HttpMessageConverter;
+//		import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+//
+//		import java.nio.charset.Charset;
+//		import java.util.List;
+//
+//
+//@Configuration
+//public class WebappConfig extends WebMvcConfigurationSupport {
+//
+//
+//	@Bean
+//	public FastJsonHttpMessageConverter customFastJsonHttpMessageConverter() {
+//		FastJsonHttpMessageConverter jsonConverter = new FastJsonHttpMessageConverter();
+//		jsonConverter.setCharset(Charset.forName("UTF-8"));
+//		jsonConverter.setFeatures(SerializerFeature.WriteDateUseDateFormat);
+//		return jsonConverter;
+//	}
+//
+//	@Override
+//	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+//		converters.add(customFastJsonHttpMessageConverter());
+//		super.addDefaultHttpMessageConverters(converters);
+//	}
+//
+//
+//}

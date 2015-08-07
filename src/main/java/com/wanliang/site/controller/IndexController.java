@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
+
+
     @RequestMapping(value = "/index")
     public String index() {
-        return "/index.ftl";
+        return "/index";
     }
 }
