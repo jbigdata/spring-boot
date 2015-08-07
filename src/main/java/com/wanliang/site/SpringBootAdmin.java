@@ -42,4 +42,8 @@ public class SpringBootAdmin {
 		SpringApplication.run(SpringBootAdmin.class, args);
 	}
 
+
+
+
+
 }
