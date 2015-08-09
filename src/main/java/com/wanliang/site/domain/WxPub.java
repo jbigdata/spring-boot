@@ -5,14 +5,13 @@ package com.wanliang.site.domain;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.wedian.site.common.persistence.DataEntity;
 
 /**
  * 公众号Entity
  * @author wanliang
  * @version 2015-07-27
  */
-public class WxPub extends DataEntity<WxPub> {
+public class WxPub  {
 	
 	private static final long serialVersionUID = 1L;
 	private String email;		// email
@@ -26,10 +25,10 @@ public class WxPub extends DataEntity<WxPub> {
 	public WxPub() {
 		super();
 	}
-
-	public WxPub(String id){
-		super(id);
-	}
+//
+//	public WxPub(String id){
+//		super(id);
+//	}
 
 	@Length(min=1, max=50, message="email长度必须介于 1 和 50 之间")
 	public String getEmail() {

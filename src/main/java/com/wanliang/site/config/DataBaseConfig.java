@@ -32,10 +32,10 @@ public class DataBaseConfig {
         return new DruidDataSource();
     }
 
-    @Bean
-    public PlatformTransactionManager txManager() {
-        return new DataSourceTransactionManager(dataSource());
-    }
+//    @Bean
+//    public PlatformTransactionManager txManager() {
+//        return new DataSourceTransactionManager(dataSource());
+//    }
 
     @Bean
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
@@ -46,7 +46,7 @@ public class DataBaseConfig {
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 
         sqlSessionFactoryBean.setMapperLocations(resolver
-                .getResources("classpath:/mapper/*.xml"));
+                .getResources("classpath:/mapper/weixin/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 

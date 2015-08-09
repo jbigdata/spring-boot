@@ -3,9 +3,8 @@
  */
 package com.wanliang.site.repository;
 
-import com.wedian.site.common.persistence.CrudDao;
-import com.wedian.site.common.persistence.annotation.MyBatisDao;
-import com.wedian.site.modules.weixin.entity.WxUser;
+
+import com.wanliang.site.domain.WxUser;
 
 /**
  * 微信用户DAO接口
@@ -13,6 +12,6 @@ import com.wedian.site.modules.weixin.entity.WxUser;
  * @version 2015-07-27
  */
 
-public interface WxUserRepository {
+public interface WxUserRepository extends BaseReository<WxUser> {
 	
 }

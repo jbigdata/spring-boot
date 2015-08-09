@@ -3,9 +3,9 @@
  */
 package com.wanliang.site.domain;
 
+import com.wanliang.site.common.persistence.DataEntity;
 import org.hibernate.validator.constraints.Length;
 
-import com.wedian.site.common.persistence.DataEntity;
 
 /**
  * 分组管理Entity

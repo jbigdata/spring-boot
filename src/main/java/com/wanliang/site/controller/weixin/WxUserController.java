@@ -3,15 +3,10 @@ package com.wanliang.site.controller.weixin;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.wedian.site.common.config.Global;
-import com.wedian.site.common.web.BaseController;
-import com.wedian.site.common.web.HttpClientUtils;
-import com.wedian.site.modules.sys.utils.UserUtils;
-import com.wedian.site.modules.weixin.entity.WxGroup;
-import com.wedian.site.modules.weixin.entity.Token;
-import com.wedian.site.modules.weixin.entity.WxUser;
-import com.wedian.site.modules.weixin.service.WxGroupService;
-import com.wedian.site.modules.weixin.service.WxUserService;
+import com.wanliang.site.domain.WxGroup;
+import com.wanliang.site.domain.WxUser;
+import com.wanliang.site.service.weixin.WxGroupService;
+import com.wanliang.site.service.weixin.WxUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,11 +21,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2015/7/23.
- */
+* Created by Administrator on 2015/7/23.
+*/
 @Controller
 @RequestMapping("/weixin")
-public class WxUserController extends BaseController {
+public class WxUserController  {
 
     @Autowired
     private WxUserService wxUserService;
@@ -41,9 +36,9 @@ public class WxUserController extends BaseController {
     @RequestMapping(value = "/user/index", method = RequestMethod.GET)
     public String group(ModelMap model) {
          WxGroup wxGroup=new WxGroup();
-         wxGroup.setCreateBy(UserUtils.getUser());
+         //wxGroup.set("1");
         model.addAttribute("groups", wxGroupService.findList(wxGroup));
-        return "weixin/user/index.ftl";
+        return "/weixin/user/index";
     }
 
     @RequestMapping(value = "/user/{groupId}", method = RequestMethod.GET)
@@ -52,7 +47,7 @@ public class WxUserController extends BaseController {
        Map<String,Object> resultMap=new HashMap<String,Object>();
         WxUser wxUser=new WxUser();
         wxUser.setGroupid(groupId);
-        wxUser.setCreateBy(UserUtils.getUser());
+        //wxUser.setCreateBy("1");
         resultMap.put("data",wxUserService.findList(wxUser));
         return resultMap;
     }

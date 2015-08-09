@@ -3,9 +3,10 @@
  */
 package com.wanliang.site.domain;
 
+import com.wanliang.site.common.persistence.BaseEntity;
+import com.wanliang.site.common.persistence.DataEntity;
 import org.hibernate.validator.constraints.Length;
 
-import com.wedian.site.common.persistence.DataEntity;
 
 /**
  * 微信用户Entity
@@ -33,9 +34,6 @@ public class WxUser extends DataEntity<WxUser> {
 		super();
 	}
 
-	public WxUser(String id){
-		super(id);
-	}
 
 	@Length(min=1, max=50, message="subscribe长度必须介于 1 和 50 之间")
 	public String getSubscribe() {

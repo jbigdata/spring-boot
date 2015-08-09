@@ -17,11 +17,13 @@ package com.wanliang.site.config;
 
 import java.util.List;
 
+import com.wanliang.site.common.security.UserSecurityInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 
@@ -35,6 +37,16 @@ public class WebappConfig extends WebMvcConfigurerAdapter {
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 		converters.add(new MappingJackson2HttpMessageConverter());
 	}
+
+    /**
+     7.     * 配置拦截器
+     8.     * @author lance
+     9.     * @param registry
+     10.     */
+       public void addInterceptors(InterceptorRegistry registry) {
+                registry.addInterceptor(new UserSecurityInterceptor()).addPathPatterns("/user/**");
+
+           }
 
 
 }

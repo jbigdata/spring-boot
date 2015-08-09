@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanliang.site.repository.WxPubRepository">
+    
+	<sql id="wxPubColumns">
+		a.id AS "id",
+		a.email AS "email",
+		a.password AS "password",
+		a.appid AS "appid",
+		a.secret AS "secret",
+		a.grant_type AS "grantType",
+		a.name AS "name",
+		a.phone AS "phone"
+	</sql>
+	
+	<sql id="wxPubJoins">
+	</sql>
+    
+	<select id="get" resultType="com.wanliang.site.domain.WxPub">
+		SELECT 
+			<include refid="wxPubColumns"/>
+		FROM wx_pub a
+		<include refid="wxPubJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="com.wanliang.site.domain.WxPub">
+		SELECT 
+			<include refid="wxPubColumns"/>
+		FROM wx_pub a
+		<include refid="wxPubJoins"/>
+		<where>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="com.wanliang.site.domain.WxPub">
+		SELECT 
+			<include refid="wxPubColumns"/>
+		FROM wx_pub a
+		<include refid="wxPubJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO wx_pub(
+			id,
+			email,
+			password,
+			appid,
+			secret,
+			grant_type,
+			name,
+			phone
+		) VALUES (
+			#{id},
+			#{email},
+			#{password},
+			#{appid},
+			#{secret},
+			#{grantType},
+			#{name},
+			#{phone}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE wx_pub SET 	
+			email = #{email},
+			password = #{password},
+			appid = #{appid},
+			secret = #{secret},
+			grant_type = #{grantType},
+			name = #{name},
+			phone = #{phone}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM wx_pub
+		WHERE id = #{id}
+	</update>
+	
+</mapper>
