@@ -135,7 +135,7 @@ public abstract class BaseController {
 //	 */
 //	@ExceptionHandler({BindException.class, ConstraintViolationException.class, ValidationException.class})
 //    public String bindException() {
-//        return "error/400";
+//        return "pages/400";
 //    }
 //
 //	/**
@@ -143,7 +143,7 @@ public abstract class BaseController {
 //	 */
 //	//@ExceptionHandler({AuthenticationException.class})
 //    public String authenticationException() {
-//        return "error/403";
+//        return "pages/403";
 //    }
 //
 //	/**
