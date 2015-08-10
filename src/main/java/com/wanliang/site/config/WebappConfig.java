@@ -18,6 +18,8 @@ package com.wanliang.site.config;
 import java.util.List;
 
 import com.wanliang.site.common.security.UserSecurityInterceptor;
+import com.wanliang.site.common.web.servlet.CaptchaServlet;
+import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -48,7 +50,13 @@ public class WebappConfig extends WebMvcConfigurerAdapter {
 
            }
 
-
+    @Bean(name = "captchaServlet")
+    public ServletRegistrationBean captchaServlet() {
+        ServletRegistrationBean bean = new ServletRegistrationBean();
+        bean.setServlet(new CaptchaServlet());
+        bean.addUrlMappings("/captcha");
+        return bean;
+    }
 }
 
 

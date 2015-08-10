@@ -64,15 +64,15 @@ public class WxPubController extends BaseController {
 
     @RequestMapping(value = "/pub/change/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Object changePub(@PathVariable("id")String id, ModelMap model) {
-		User user=UserUtils.getUser();
+    public Object changePub(HttpServletRequest request,@PathVariable("id")String id, ModelMap model) {
+		User user=this.getCurrentUser(request);
 		WxPub wxPub= wxPubService.get(id);
 		logger.debug(user.getId()+":"+wxPub.getAppid());
 		Map<String,String> appMap=new HashMap<String, String>();
 		appMap.put("appid",wxPub.getAppid());
 		appMap.put("secret",wxPub.getSecret());
 		appMap.put("grant_type",wxPub.getGrantType());
-		JedisUtils.setMap("pub_" + user.getId(), appMap,0);
+		//JedisUtils.setMap("pub_" + user.getId(), appMap,0);
          return "ok";
     }
 

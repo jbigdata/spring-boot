@@ -1,7 +1,7 @@
 package com.wanliang.site.controller;
 
 import com.wanliang.site.command.GetUserCommand;
-import com.wanliang.site.domain.User;
+import com.wanliang.site.domain.sys.User;
 import com.wanliang.site.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +28,6 @@ public class UserController {
     @ResponseBody
     public User getUser(@RequestBody GetUserCommand command) {
         LOGGER.info("get User with username '{}' and URL '{}'", command.getId());
-        return userService.getUser(command.getId());
+        return userService.findUserByUserName(command.getId());
     }
 }
