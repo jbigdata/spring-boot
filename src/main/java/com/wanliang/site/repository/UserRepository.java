@@ -1,11 +1,12 @@
 package com.wanliang.site.repository;
 
-import com.wanliang.site.domain.User;
+
+import com.wanliang.site.domain.sys.User;
 
 /**
  * Created by Administrator on 2015/8/5.
  */
 public interface UserRepository  extends BaseReository<User>{
 
-    User selectUser(String username);
+    User findUserByUserName(String username);
 }

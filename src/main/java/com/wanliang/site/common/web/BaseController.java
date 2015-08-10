@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolationException;
 import javax.validation.ValidationException;
@@ -18,7 +19,7 @@ import com.alibaba.fastjson.JSON;
 import com.wanliang.site.common.util.DateUtils;
 import com.wanliang.site.common.util.HttpClientUtils;
 import com.wanliang.site.domain.Token;
-import com.wanliang.site.domain.User;
+import com.wanliang.site.domain.sys.User;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -121,6 +122,12 @@ public abstract class BaseController {
 		} catch (IOException e) {
 			return null;
 		}
+	}
+
+
+	protected User getCurrentUser(HttpServletRequest request){
+
+		return (User)request.getSession().getAttribute("currentUser");
 	}
 
 //	/**

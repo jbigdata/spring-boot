@@ -1,6 +1,6 @@
 package com.wanliang.site.service;
 
-import com.wanliang.site.domain.User;
+import com.wanliang.site.domain.sys.User;
 import com.wanliang.site.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +15,8 @@ public class UserService {
     private UserRepository userRepository;
 
 
-    public User getUser(String username){
+    public User findUserByUserName(String username){
 
-        return userRepository.selectUser(username);
+        return userRepository.findUserByUserName(username);
     }
 }

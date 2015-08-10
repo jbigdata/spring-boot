@@ -3,6 +3,7 @@
  */
 package com.wanliang.site.domain;
 
+import com.wanliang.site.common.persistence.DataEntity;
 import org.hibernate.validator.constraints.Length;
 
 
@@ -11,8 +12,8 @@ import org.hibernate.validator.constraints.Length;
  * @author wanliang
  * @version 2015-07-27
  */
-public class WxPub  {
-	
+public class WxPub extends DataEntity<WxPub> {
+
 	private static final long serialVersionUID = 1L;
 	private String email;		// email
 	private String password;		// password
